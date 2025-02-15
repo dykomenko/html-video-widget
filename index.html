@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="facelink-widget facelink-widget-loaded facelink-widget-position-LEFT facelink-widget-type-VIDEO_BUTTON" style="--facelink-widget-color: #FAD140; --facelink-widget-background: #FAD140; --facelink-widget-text-color: #1A1A1C;"><div class="facelink-widget-main">
+        <div class="facelink-widget-iframe">
+           <video src="full.mp4"></video>
+           <div class="arrowUp">
+             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="80" fill="currentColor" viewBox="0 0 256 256" data-sentry-element="CaretUp" data-sentry-source-file="FunnelPanelMobileGrab.tsx" style="transform: scale(1.5, 0.7);"><path d="M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z"></path></svg>
+            </div>
+
+           <button class="sound" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm101.66-61.3a8,8,0,0,1-11.32,11.32L216,139.31l-18.34,18.35a8,8,0,0,1-11.32-11.32L204.69,128l-18.35-18.34a8,8,0,0,1,11.32-11.32L216,116.69l18.34-18.35a8,8,0,0,1,11.32,11.32L227.31,128Z"></path></svg></button>
+            <div class="downbanner">
+              <h3>мой ТГ</h3>
+              <a href="https://t.me/wlad2chanel" target="_blank" class="btn btn-telegram">
+                <svg width="41" height="40" viewBox="0 0 41 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-sentry-element="svg"><path d="M31.7001 9.64292L27.4925 31.609C27.4925 31.609 26.9038 33.132 25.2866 32.4016L15.5785 24.6934L15.5335 24.6707C16.8448 23.4514 27.0135 13.9835 27.4579 13.5544C28.1459 12.8897 27.7188 12.494 26.92 12.9961L11.8996 22.874L6.10479 20.8549C6.10479 20.8549 5.19286 20.519 5.10513 19.7886C5.01624 19.0569 6.1348 18.6613 6.1348 18.6613L29.7585 9.06433C29.7585 9.06433 31.7001 8.18091 31.7001 9.64292Z"></path></svg>
+              </a>
+          
+            </div>
+          <svg class="facelink-widget-close" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="16" fill="#000" fill-opacity=".8"></rect><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.858 10.975a.625.625 0 1 0-.883.883L15.115 16l-4.14 4.141a.625.625 0 1 0 .883.884L16 16.884l4.141 4.141a.625.625 0 1 0 .884-.884L16.884 16l4.141-4.142a.625.625 0 1 0-.884-.883L16 15.115l-4.142-4.14Z" fill="#F8F8F8"></path></g><defs><clipPath id="a"><path fill="#fff" transform="translate(6 6)" d="M0 0h20v20H0z"></path></clipPath></defs></svg>
+        </div>
+      </div><div class="facelink-widget-container"><div class="facelink-widget-type">
+        <div class="facelink-widget-preview">
+          <video autoplay="" playsinline="" muted="" loop="" poster="output.jpg" src="preview.mp4" class="facelink-widget-preview-video"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function q(w){
+    return document.querySelector(w);
+  }
+  function qa(w){
+    return document.querySelectorAll(w);
+  }
+
+  modalVideo = q('.facelink-widget-iframe');
+  video = modalVideo.querySelector('video');
+  fixedWidget = q('.facelink-widget-container');
+  closeBtn = q('.facelink-widget-close');
+  downbanner = q('.downbanner');
+  muteBtn = q('.sound');
+  arrowUp = q('.arrowUp');
+  fixedWidget.addEventListener( 'click' , function(e){
+    modalVideo.style.display = 'flex';
+    video.play();
+  });
+  closeBtn.addEventListener('click', function(e){
+    modalVideo.style.display = 'none';
+    video.pause();
+  });
+  muteBtn.addEventListener('click', function(e){
+    video.muted = video.muted ? false : true;
+  });
+
+
+  function videoToggle(){
+    if (video.paused) {
+      video.play();
+      downbanner.classList.remove('active');
+    } else{
+      video.pause();
+      downbanner.classList.add('active');
+    }
+  }
+  video.addEventListener('click', videoToggle);
+  arrowUp.addEventListener('click', videoToggle);
+  video.addEventListener('ended', function(e){
+    downbanner.classList.add('active');
+  });
+
+</script>
+
+</body>
+</html>
